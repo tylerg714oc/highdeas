@@ -1,0 +1,345 @@
+<!-- Highdeas Logo -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 22c.5-2 1-4.5 1-4.5s2.5 1.5 4.5 1.5c-1-2-1.5-4.5-1.5-4.5s3.5 1.5 5.5 0c-2.5-.5-4.5-2-4.5-2s3-3 2.5-5.5c-2 1-4.5 2-4.5 2s-.5-3.5-2.5-5.5c-.5 2.5-1 5.5-1 5.5s-1.5-3-3.5-4c.5 2.5 1 5.5 1 5.5s-3-1-5.5-2c.5 2.5 2.5 5.5 2.5 5.5s-4.5-1.5-5.5 0c2 1.5 5.5 0 5.5 0s-.5 2.5-1.5 4.5c2 0 4.5-1.5 4.5-1.5s.5 2.5 1 4.5z" />
+  <path d="M12 17v3" opacity="0.5" />
+  <path d="M9 18c-1-1-2-1-3-0.5" opacity="0.3" />
+  <path d="M15 18c1-1 2-1 3-0.5" opacity="0.3" />
+</svg>
+
+<!-- Highdeas Mobile Feed -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 22c.5-2 1-4.5 1-4.5s2.5 1.5 4.5 1.5c-1-2-1.5-4.5-1.5-4.5s3.5 1.5 5.5 0c-2.5-.5-4.5-2-4.5-2s3-3 2.5-5.5c-2 1-4.5 2-4.5 2s-.5-3.5-2.5-5.5c-.5 2.5-1 5.5-1 5.5s-1.5-3-3.5-4c.5 2.5 1 5.5 1 5.5s-3-1-5.5-2c.5 2.5 2.5 5.5 2.5 5.5s-4.5-1.5-5.5 0c2 1.5 5.5 0 5.5 0s-.5 2.5-1.5 4.5c2 0 4.5-1.5 4.5-1.5s.5 2.5 1 4.5z" />
+  <path d="M12 17v-2" stroke-opacity="0.5" />
+  <path d="M7 12c-1-2-2-3-1-5" stroke-opacity="0.4" />
+  <path d="M17 12c1-2 2-3 1-5" stroke-opacity="0.4" />
+  <path d="M12 8c0-2 1-4 3-5" stroke-opacity="0.6" />
+  <path d="M12 8c0-2-1-4-3-5" stroke-opacity="0.6" />
+</svg>
+
+<!-- Design System -->
+<!DOCTYPE html>
+
+<html class="dark" lang="en" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Highdeas - Mobile Feed</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=Space+Grotesk:wght@400..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* The "Smoke" Overlay */
+        .smoke-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 9999;
+            background-image: repeating-radial-gradient(circle at 50% 50%, rgba(255,255,255,0.02) 0%, rgba(0,0,0,0.02) 2px);
+            opacity: 0.1;
+        }
+
+        /* Glassmorphism & Glows */
+        .glass-card {
+            background-color: rgba(37, 61, 44, 0.4); /* surface/40ish but specific to style guide */
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(112, 128, 144, 0.2);
+            box-shadow: 0 0 15px rgba(27, 48, 34, 0.4); /* Low opacity glow */
+            transition: all 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            transform: scale(1.02);
+            backdrop-filter: blur(24px);
+            border-color: rgba(212, 175, 55, 0.5); /* Muted Gold */
+        }
+
+        .pinned-glow {
+            border: 2px solid;
+            border-image-slice: 1;
+            border-width: 2px;
+            border-image-source: linear-gradient(to right, #ffbf00, #d4af37);
+            box-shadow: 0 0 20px rgba(255, 191, 0, 0.15); /* Persistent amber glow */
+        }
+
+        .btn-pulse {
+            animation: pulse-glow 2s infinite alternate;
+        }
+
+        @keyframes pulse-glow {
+            from { box-shadow: 0 0 5px rgba(255, 191, 0, 0.4); }
+            to { box-shadow: 0 0 15px rgba(255, 191, 0, 0.8); }
+        }
+
+        /* Hide scrollbar for horizontal scroll */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ffb4ab",
+                        "on-primary-fixed-variant": "#364c3c",
+                        "outline": "#8d928c",
+                        "surface-tint": "#b4cdb8",
+                        "on-primary-container": "#819986",
+                        "on-secondary-container": "#6d5000",
+                        "on-tertiary": "#3c2f00",
+                        "tertiary-fixed": "#ffe088",
+                        "surface-container-high": "#1c2b39",
+                        "background": "#041521",
+                        "error-container": "#93000a",
+                        "on-secondary-fixed": "#261a00",
+                        "primary-fixed": "#d0e9d4",
+                        "on-tertiary-container": "#4e3d00",
+                        "inverse-surface": "#d4e4f6",
+                        "on-surface": "#d4e4f6",
+                        "surface-container-low": "#0d1d2a",
+                        "on-secondary-fixed-variant": "#5c4300",
+                        "on-tertiary-fixed-variant": "#574500",
+                        "surface-dim": "#041521",
+                        "primary": "#b4cdb8",
+                        "secondary-container": "#ffbf00",
+                        "surface-container": "#11212e",
+                        "inverse-primary": "#4d6453",
+                        "secondary-fixed": "#ffdfa0",
+                        "surface-container-lowest": "#010f1c",
+                        "inverse-on-surface": "#223240",
+                        "surface-variant": "#273644",
+                        "on-tertiary-fixed": "#241a00",
+                        "tertiary": "#e9c349",
+                        "on-background": "#d4e4f6",
+                        "on-primary-fixed": "#0b2013",
+                        "primary-fixed-dim": "#b4cdb8",
+                        "on-secondary": "#402d00",
+                        "tertiary-container": "#cba72f",
+                        "on-primary": "#203527",
+                        "outline-variant": "#434843",
+                        "surface-container-highest": "#273644",
+                        "surface-bright": "#2b3b49",
+                        "surface": "#041521",
+                        "on-error-container": "#ffdad6",
+                        "on-surface-variant": "#c3c8c1",
+                        "on-error": "#690005",
+                        "primary-container": "#1b3022",
+                        "tertiary-fixed-dim": "#e9c349",
+                        "secondary-fixed-dim": "#fbbc00",
+                        "secondary": "#ffe2ab"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "48px",
+                        "margin-mobile": "16px",
+                        "max-width": "1200px",
+                        "unit": "4px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Bricolage Grotesque"],
+                        "label-sm": ["Space Grotesk"],
+                        "body-lg": ["Space Grotesk"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "body-md": ["Space Grotesk"],
+                        "headline-lg-mobile": ["Bricolage Grotesque"],
+                        "label-md": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "label-sm": ["12px", { "lineHeight": "1.2", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background min-h-screen pb-24 relative overflow-x-hidden">
+<!-- Global Smoke Overlay -->
+<div class="smoke-overlay"></div>
+<!-- TopAppBar from JSON -->
+<header class="fixed top-0 w-full z-40 bg-surface/40 dark:bg-surface/40 backdrop-blur-xl border-b border-outline-variant/20 shadow-[0_4px_20px_rgba(27,48,34,0.4)] flex justify-between items-center px-margin-mobile h-16">
+<div class="flex items-center gap-3">
+<img alt="Highdeas Logo" class="w-10 h-10 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTaMhIlSOvIvRVm7K9v79ZBT2HO0Y2O_JSAcMZcPGopYfEjbyov_ZvJ5nE5jVwjf01GNIcDZ63OJSAF-OGnW-SVmUHsr7mLnlqWeaBpj8A6s5hZW-v30lfeDMNkLKaySRJJUo8T6Jmv07Ww5udf2TwzMyKy72J1kj5pf_z5RJrn-gaWYU58b-q0EF1KigA2GvVT1WGPrBghHK0k1-Q94Ds1l8iaTUza3CXRLxRQmhDa4zEZTAEw6dIkn5VOeLg8xLAuXv13Hly9Q4"/>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile tracking-tight font-black text-secondary-container font-display" style="letter-spacing: -0.05em; color: #fbbc00;">Highdeas</h1>
+</div>
+<button class="text-on-surface-variant hover:text-tertiary transition-colors duration-300 scale-105 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+</header>
+<main class="pt-20 px-margin-mobile md:hidden flex flex-col gap-6">
+<!-- Pinned Highdeas Section -->
+<div class="flex flex-col items-center justify-center py-6 px-margin-mobile text-center">
+<p class="font-headline-lg-mobile text-headline-lg-mobile text-secondary-container" style="font-family: 'Bricolage Grotesque'; text-shadow: 0 0 12px rgba(251, 188, 0, 0.4);">
+        “Reality is just a collective hallucination we all agreed on.”
+    </p>
+<div class="h-1 w-16 bg-secondary-container/20 rounded-full mt-4"></div>
+</div><section class="flex flex-col gap-3">
+<div class="flex items-center gap-2 px-1">
+<span class="material-symbols-outlined text-secondary-container fill" data-icon="push_pin" style="font-variation-settings: 'FILL' 1;">push_pin</span>
+<h2 class="font-label-md text-label-md text-secondary-container">Pinned Highdeas</h2>
+</div>
+<div class="flex gap-4 overflow-x-auto no-scrollbar pb-4 pt-1 px-1 -mx-margin-mobile px-margin-mobile snap-x snap-mandatory">
+<!-- Pinned Card 1 -->
+<div class="glass-card pinned-glow rounded-xl p-4 min-w-[280px] w-[85vw] snap-center flex flex-col gap-3 relative shrink-0">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-primary" data-icon="person">person</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">CosmicDabber88</span>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-high/80 px-2 py-1 rounded-full border border-secondary-container/30">
+<span class="material-symbols-outlined text-[12px] text-secondary-container" data-icon="timer">timer</span>
+<span class="font-label-sm text-label-sm text-secondary-container">14h 22m</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface line-clamp-3">
+                        If our knees bent the other way, what would chairs look like? Would we even need them or would we just hook ourselves onto bars?
+                    </p>
+<div class="flex gap-2 mt-auto pt-2">
+<span class="bg-primary-container border border-outline-variant px-3 py-1 rounded-full font-label-sm text-label-sm text-primary">#Anatomy</span>
+<span class="bg-primary-container border border-outline-variant px-3 py-1 rounded-full font-label-sm text-label-sm text-primary">#Furniture</span>
+</div>
+</div>
+<!-- Pinned Card 2 -->
+<div class="glass-card pinned-glow rounded-xl p-4 min-w-[280px] w-[85vw] snap-center flex flex-col gap-3 relative shrink-0">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-primary" data-icon="person">person</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">StardustVoyager</span>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-high/80 px-2 py-1 rounded-full border border-secondary-container/30">
+<span class="material-symbols-outlined text-[12px] text-secondary-container" data-icon="timer">timer</span>
+<span class="font-label-sm text-label-sm text-secondary-container">08h 15m</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface line-clamp-3">
+                        Water is just the Earth's sky juice. We're all just drinking ancient sky juice that dinosaurs probably drank too.
+                    </p>
+<div class="flex gap-2 mt-auto pt-2">
+<span class="bg-primary-container border border-outline-variant px-3 py-1 rounded-full font-label-sm text-label-sm text-primary">#Nature</span>
+<span class="bg-primary-container border border-outline-variant px-3 py-1 rounded-full font-label-sm text-label-sm text-primary">#Deep</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Feed -->
+<section class="flex flex-col gap-6">
+<!-- Feed Card 1 -->
+<article class="glass-card rounded-xl p-5 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center border border-outline-variant/50">
+<span class="material-symbols-outlined text-primary" data-icon="cruelty_free">cruelty_free</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-primary">QuantumSofa</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">2 hours ago</span>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-secondary-container transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+<div class="py-2">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2">The Bread Conspiracy</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant/90">
+                        A sandwich is just a temporary state of bread holding ingredients until you eat it. Once bitten, it's no longer a sandwich, it's just food in transit. So, is a hotdog a sandwich? Only if the bun holds until the last bite.
+                    </p>
+</div>
+<div class="flex items-center justify-between border-t border-outline-variant/20 pt-4 mt-2">
+<div class="flex items-center gap-1 bg-surface-container-high rounded-full p-1 border border-outline-variant/30">
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary-container hover:text-primary transition-colors text-on-surface-variant"><span class="material-symbols-outlined text-[20px]" data-icon="thumb_up">thumb_up</span></button>
+<span class="font-label-md text-label-md text-on-surface px-2">420</span>
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-error-container hover:text-error transition-colors text-on-surface-variant"><span class="material-symbols-outlined text-[20px]" data-icon="thumb_down">thumb_down</span></button>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 rounded-full border border-secondary-container/50 text-secondary-container hover:bg-secondary-container/10 transition-colors font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px]" data-icon="rocket_launch">rocket_launch</span>
+                        Pin Boost
+                    </button>
+</div>
+</article>
+<!-- Feed Card 2 -->
+<article class="glass-card rounded-xl p-5 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center border border-outline-variant/50">
+<span class="material-symbols-outlined text-primary" data-icon="psychiatry">psychiatry</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-primary">NebulaNapper</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">5 hours ago</span>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-secondary-container transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+<div class="py-2">
+<p class="font-body-lg text-body-lg text-on-surface-variant/90">
+                        Mirrors don't actually look like anything. They just look like whatever is looking at them. It's the ultimate chameleon.
+                    </p>
+</div>
+<div class="flex items-center justify-between border-t border-outline-variant/20 pt-4 mt-2">
+<div class="flex items-center gap-1 bg-surface-container-high rounded-full p-1 border border-outline-variant/30">
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary-container hover:text-primary transition-colors text-on-surface-variant"><span class="material-symbols-outlined text-[20px]" data-icon="thumb_up">thumb_up</span></button>
+<span class="font-label-md text-label-md text-on-surface px-2">138</span>
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-error-container hover:text-error transition-colors text-on-surface-variant"><span class="material-symbols-outlined text-[20px]" data-icon="thumb_down">thumb_down</span></button>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 rounded-full border border-secondary-container/50 text-secondary-container hover:bg-secondary-container/10 transition-colors font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px]" data-icon="rocket_launch">rocket_launch</span>
+                        Pin Boost
+                    </button>
+</div>
+</article>
+</section>
+</main>
+<!-- FAB -->
+<button class="fixed bottom-24 right-6 w-14 h-14 bg-secondary-container text-primary-container rounded-full flex items-center justify-center shadow-lg btn-pulse z-40 md:hidden">
+<span class="material-symbols-outlined text-[28px]" data-icon="add">add</span>
+</button>
+<!-- BottomNavBar from JSON -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 pb-safe bg-surface-container/60 dark:bg-surface-container/60 backdrop-blur-2xl border-t border-outline-variant/10 shadow-[0_-8px_30px_rgba(0,0,0,0.5)] rounded-t-xl md:hidden">
+<button class="flex flex-col items-center justify-center text-secondary-container bg-primary-container/30 rounded-full px-4 py-1 shadow-[0_0_15px_rgba(255,191,0,0.2)] hover:text-primary transition-all duration-300 scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="local_fire_department">local_fire_department</span>
+<span class="font-label-sm text-label-sm">Trending</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="category">category</span>
+<span class="font-label-sm text-label-sm">Categories</span>
+</button>
+</nav>
+</body></html>

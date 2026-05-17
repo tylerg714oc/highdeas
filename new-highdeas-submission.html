@@ -1,0 +1,199 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Highdeas - New Submission</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&amp;family=Space+Grotesk:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#cba72f",
+                        "surface-tint": "#b4cdb8",
+                        "outline": "#8d928c",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed": "#ffdfa0",
+                        "on-surface": "#d4e4f6",
+                        "secondary-fixed-dim": "#fbbc00",
+                        "on-primary-container": "#819986",
+                        "on-tertiary-container": "#4e3d00",
+                        "surface-variant": "#273644",
+                        "surface-container-lowest": "#010f1c",
+                        "on-tertiary": "#3c2f00",
+                        "on-surface-variant": "#c3c8c1",
+                        "on-tertiary-fixed": "#241a00",
+                        "primary-fixed-dim": "#b4cdb8",
+                        "secondary-container": "#ffbf00",
+                        "surface-dim": "#041521",
+                        "secondary": "#ffe2ab",
+                        "on-primary": "#203527",
+                        "error-container": "#93000a",
+                        "on-secondary": "#402d00",
+                        "outline-variant": "#434843",
+                        "tertiary-fixed": "#ffe088",
+                        "inverse-primary": "#4d6453",
+                        "on-primary-fixed-variant": "#364c3c",
+                        "surface-container-highest": "#273644",
+                        "primary": "#b4cdb8",
+                        "on-secondary-fixed": "#261a00",
+                        "on-primary-fixed": "#0b2013",
+                        "tertiary": "#e9c349",
+                        "surface-container": "#11212e",
+                        "on-error": "#690005",
+                        "on-background": "#d4e4f6",
+                        "surface-container-low": "#0d1d2a",
+                        "primary-container": "#1b3022",
+                        "on-secondary-container": "#6d5000",
+                        "surface-container-high": "#1c2b39",
+                        "primary-fixed": "#d0e9d4",
+                        "error": "#ffb4ab",
+                        "surface-bright": "#2b3b49",
+                        "on-secondary-fixed-variant": "#5c4300",
+                        "on-tertiary-fixed-variant": "#574500",
+                        "inverse-surface": "#d4e4f6",
+                        "inverse-on-surface": "#223240",
+                        "background": "#041521",
+                        "tertiary-fixed-dim": "#e9c349",
+                        "surface": "#041521"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "max-width": "1200px",
+                        "margin-desktop": "48px",
+                        "unit": "4px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Space Grotesk"],
+                        "label-md": ["Space Grotesk"],
+                        "body-md": ["Space Grotesk"],
+                        "headline-xl": ["Bricolage Grotesque"],
+                        "headline-lg-mobile": ["Bricolage Grotesque"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "label-sm": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.02;
+            background-image: repeating-radial-gradient(#000 0 0.0001%, #fff 0 0.0002%);
+            background-size: 100% 100%;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen relative flex items-center justify-center p-4">
+<!-- Smoke/Noise Overlay -->
+<div class="noise-overlay"></div>
+<!-- Underlying Page Context (Blurred out) -->
+<div class="absolute inset-0 z-0 overflow-hidden opacity-50 blur-sm flex flex-col">
+<!-- Mock TopAppBar -->
+<header class="bg-surface/40 dark:bg-surface/40 backdrop-blur-xl docked full-width top-0 border-b border-outline-variant/20 shadow-[0_4px_20px_rgba(27,48,34,0.4)] flex justify-between items-center w-full px-margin-mobile h-16">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">eco</span>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-tight">Highdeas</span>
+</div>
+</header>
+<!-- Mock Feed Content -->
+<main class="flex-1 p-gutter grid gap-gutter opacity-30">
+<div class="h-48 rounded-xl bg-primary-container/40 border border-outline/20"></div>
+<div class="h-64 rounded-xl bg-primary-container/40 border border-outline/20"></div>
+</main>
+</div>
+<!-- Modal Overlay Backdrop -->
+<div class="fixed inset-0 bg-surface-container-lowest/80 backdrop-blur-md z-40"></div>
+<!-- Modal Container -->
+<div class="relative z-50 w-full max-w-lg bg-surface border border-outline/20 rounded-xl shadow-[0_0_40px_rgba(27,48,34,0.6)] flex flex-col overflow-hidden">
+<!-- Modal Header -->
+<div class="flex justify-between items-center p-6 border-b border-outline/10 bg-primary-container/20">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary">Spark a Thought</h2>
+<button class="text-on-surface-variant hover:text-secondary-container transition-colors p-2 rounded-full hover:bg-surface-variant/50">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Modal Body -->
+<div class="p-6 flex flex-col gap-6 bg-surface/90">
+<!-- User Info / Context -->
+<div class="flex flex-col gap-4">
+    <div class="flex items-center gap-3 px-4 py-3 bg-surface-container/50 border-0 border-b-2 border-outline/50 rounded-t-lg focus-within:border-secondary-container transition-all duration-300">
+        <span class="material-symbols-outlined text-on-surface-variant text-sm">person</span>
+        <input class="bg-transparent border-none p-0 focus:ring-0 w-full font-body-md text-body-md text-on-surface placeholder-on-surface-variant/50 outline-none" placeholder="Your name (optional)" type="text">
+    </div>
+    <label class="flex items-center gap-3 cursor-pointer group px-1">
+        <div class="relative flex items-center justify-center w-6 h-6">
+            <input class="peer sr-only" type="checkbox">
+            <div class="w-5 h-5 border-2 border-outline/50 rounded peer-checked:bg-secondary-container peer-checked:border-secondary-container transition-colors"></div>
+            <span class="material-symbols-outlined text-primary-container absolute opacity-0 peer-checked:opacity-100 text-sm pointer-events-none transition-opacity" style="font-variation-settings: 'FILL' 1;">check</span>
+        </div>
+        <span class="font-body-md text-body-md text-on-surface-variant group-hover:text-on-surface transition-colors">Post Anonymously</span>
+    </label>
+</div>
+<!-- Text Area -->
+<div class="relative">
+<textarea class="w-full h-40 bg-surface-container/50 border-0 border-b-2 border-outline/50 rounded-t-lg p-4 font-body-lg text-body-lg text-on-surface placeholder-on-surface-variant/50 focus:ring-0 focus:border-secondary-container transition-all duration-300 resize-none outline-none focus:shadow-[0_4px_15px_rgba(255,191,0,0.1)] focus:bg-surface-container/80" placeholder="What's on your mind? (Keep it hazy...)"></textarea>
+</div>
+<!-- Tags Input -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2 px-4 py-3 bg-surface-container/50 border-0 border-b-2 border-outline/50 rounded-t-lg focus-within:border-secondary-container transition-all duration-300">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">tag</span>
+<input class="bg-transparent border-none p-0 focus:ring-0 w-full font-body-md text-body-md text-on-surface placeholder-on-surface-variant/50 outline-none" placeholder="Add tags (e.g., #philosophy, #snacks)" type="text">
+</div>
+<!-- Suggested Tags Chips -->
+<div class="flex flex-wrap gap-2 mt-2">
+<button class="px-3 py-1 rounded-full border border-outline/50 bg-transparent text-on-surface-variant font-label-sm text-label-sm hover:border-secondary-container hover:text-secondary-container transition-colors">#showerthoughts</button>
+<button class="px-3 py-1 rounded-full border border-secondary-container bg-primary-container/30 text-secondary-container font-label-sm text-label-sm shadow-[0_0_10px_rgba(255,191,0,0.1)]">#munchies</button>
+<button class="px-3 py-1 rounded-full border border-outline/50 bg-transparent text-on-surface-variant font-label-sm text-label-sm hover:border-secondary-container hover:text-secondary-container transition-colors">#universe</button>
+</div>
+</div>
+<!-- Options Row -->
+<div class="flex items-center justify-between mt-2 py-4 border-t border-outline/10 justify-end">
+
+<button class="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-xl">image</span>
+</button>
+</div>
+</div>
+<!-- Modal Footer / Actions -->
+<div class="p-6 bg-surface-container/30 border-t border-outline/10 flex justify-end">
+<button class="px-8 py-3 bg-secondary-container text-primary-container font-label-md text-label-md rounded-lg shadow-[0_0_15px_rgba(255,191,0,0.4)] hover:shadow-[0_0_25px_rgba(255,191,0,0.6)] hover:scale-105 transition-all duration-300 flex items-center gap-2 group">
+                Post Highdea
+                <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">send</span>
+</button>
+</div>
+</div>
+
+
+</body></html>
