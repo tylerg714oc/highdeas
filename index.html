@@ -1,31 +1,11 @@
-<!-- Highdeas Logo -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M12 22c.5-2 1-4.5 1-4.5s2.5 1.5 4.5 1.5c-1-2-1.5-4.5-1.5-4.5s3.5 1.5 5.5 0c-2.5-.5-4.5-2-4.5-2s3-3 2.5-5.5c-2 1-4.5 2-4.5 2s-.5-3.5-2.5-5.5c-.5 2.5-1 5.5-1 5.5s-1.5-3-3.5-4c.5 2.5 1 5.5 1 5.5s-3-1-5.5-2c.5 2.5 2.5 5.5 2.5 5.5s-4.5-1.5-5.5 0c2 1.5 5.5 0 5.5 0s-.5 2.5-1.5 4.5c2 0 4.5-1.5 4.5-1.5s.5 2.5 1 4.5z" />
-  <path d="M12 17v3" opacity="0.5" />
-  <path d="M9 18c-1-1-2-1-3-0.5" opacity="0.3" />
-  <path d="M15 18c1-1 2-1 3-0.5" opacity="0.3" />
-</svg>
-
-<!-- Highdeas Mobile Feed -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M12 22c.5-2 1-4.5 1-4.5s2.5 1.5 4.5 1.5c-1-2-1.5-4.5-1.5-4.5s3.5 1.5 5.5 0c-2.5-.5-4.5-2-4.5-2s3-3 2.5-5.5c-2 1-4.5 2-4.5 2s-.5-3.5-2.5-5.5c-.5 2.5-1 5.5-1 5.5s-1.5-3-3.5-4c.5 2.5 1 5.5 1 5.5s-3-1-5.5-2c.5 2.5 2.5 5.5 2.5 5.5s-4.5-1.5-5.5 0c2 1.5 5.5 0 5.5 0s-.5 2.5-1.5 4.5c2 0 4.5-1.5 4.5-1.5s.5 2.5 1 4.5z" />
-  <path d="M12 17v-2" stroke-opacity="0.5" />
-  <path d="M7 12c-1-2-2-3-1-5" stroke-opacity="0.4" />
-  <path d="M17 12c1-2 2-3 1-5" stroke-opacity="0.4" />
-  <path d="M12 8c0-2 1-4 3-5" stroke-opacity="0.6" />
-  <path d="M12 8c0-2-1-4-3-5" stroke-opacity="0.6" />
-</svg>
-
-<!-- Design System -->
 <!DOCTYPE html>
-
-<html class="dark" lang="en" style=""><head>
+<html class="dark" lang="en" style="">
+<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Highdeas - Mobile Feed</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=Space+Grotesk:wght@400..700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <style>
         .material-symbols-outlined {
@@ -34,7 +14,7 @@
         .material-symbols-outlined.fill {
             font-variation-settings: 'FILL' 1;
         }
-        
+ 
         /* The "Smoke" Overlay */
         .smoke-overlay {
             position: fixed;
@@ -47,40 +27,40 @@
             background-image: repeating-radial-gradient(circle at 50% 50%, rgba(255,255,255,0.02) 0%, rgba(0,0,0,0.02) 2px);
             opacity: 0.1;
         }
-
+ 
         /* Glassmorphism & Glows */
         .glass-card {
-            background-color: rgba(37, 61, 44, 0.4); /* surface/40ish but specific to style guide */
+            background-color: rgba(37, 61, 44, 0.4);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(112, 128, 144, 0.2);
-            box-shadow: 0 0 15px rgba(27, 48, 34, 0.4); /* Low opacity glow */
+            box-shadow: 0 0 15px rgba(27, 48, 34, 0.4);
             transition: all 0.3s ease;
         }
-        
+ 
         .glass-card:hover {
             transform: scale(1.02);
             backdrop-filter: blur(24px);
-            border-color: rgba(212, 175, 55, 0.5); /* Muted Gold */
+            border-color: rgba(212, 175, 55, 0.5);
         }
-
+ 
         .pinned-glow {
             border: 2px solid;
             border-image-slice: 1;
             border-width: 2px;
             border-image-source: linear-gradient(to right, #ffbf00, #d4af37);
-            box-shadow: 0 0 20px rgba(255, 191, 0, 0.15); /* Persistent amber glow */
+            box-shadow: 0 0 20px rgba(255, 191, 0, 0.15);
         }
-
+ 
         .btn-pulse {
             animation: pulse-glow 2s infinite alternate;
         }
-
+ 
         @keyframes pulse-glow {
             from { box-shadow: 0 0 5px rgba(255, 191, 0, 0.4); }
             to { box-shadow: 0 0 15px rgba(255, 191, 0, 0.8); }
         }
-
+ 
         /* Hide scrollbar for horizontal scroll */
         .no-scrollbar::-webkit-scrollbar {
             display: none;
@@ -193,19 +173,20 @@
 <span class="material-symbols-outlined" data-icon="search">search</span>
 </button>
 </header>
-<main class="pt-20 px-margin-mobile md:hidden flex flex-col gap-6">
+<main class="pt-20 px-margin-mobile flex flex-col gap-6 max-w-xl mx-auto">
 <!-- Pinned Highdeas Section -->
 <div class="flex flex-col items-center justify-center py-6 px-margin-mobile text-center">
 <p class="font-headline-lg-mobile text-headline-lg-mobile text-secondary-container" style="font-family: 'Bricolage Grotesque'; text-shadow: 0 0 12px rgba(251, 188, 0, 0.4);">
-        “Reality is just a collective hallucination we all agreed on.”
+        &ldquo;Reality is just a collective hallucination we all agreed on.&rdquo;
     </p>
 <div class="h-1 w-16 bg-secondary-container/20 rounded-full mt-4"></div>
-</div><section class="flex flex-col gap-3">
+</div>
+<section class="flex flex-col gap-3">
 <div class="flex items-center gap-2 px-1">
 <span class="material-symbols-outlined text-secondary-container fill" data-icon="push_pin" style="font-variation-settings: 'FILL' 1;">push_pin</span>
 <h2 class="font-label-md text-label-md text-secondary-container">Pinned Highdeas</h2>
 </div>
-<div class="flex gap-4 overflow-x-auto no-scrollbar pb-4 pt-1 px-1 -mx-margin-mobile px-margin-mobile snap-x snap-mandatory">
+<div class="flex gap-4 overflow-x-auto no-scrollbar pb-4 pt-1 px-1 snap-x snap-mandatory">
 <!-- Pinned Card 1 -->
 <div class="glass-card pinned-glow rounded-xl p-4 min-w-[280px] w-[85vw] snap-center flex flex-col gap-3 relative shrink-0">
 <div class="flex justify-between items-center">
@@ -324,11 +305,11 @@
 </section>
 </main>
 <!-- FAB -->
-<button class="fixed bottom-24 right-6 w-14 h-14 bg-secondary-container text-primary-container rounded-full flex items-center justify-center shadow-lg btn-pulse z-40 md:hidden">
+<button class="fixed bottom-24 right-6 w-14 h-14 bg-secondary-container text-primary-container rounded-full flex items-center justify-center shadow-lg btn-pulse z-40">
 <span class="material-symbols-outlined text-[28px]" data-icon="add">add</span>
 </button>
 <!-- BottomNavBar from JSON -->
-<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 pb-safe bg-surface-container/60 dark:bg-surface-container/60 backdrop-blur-2xl border-t border-outline-variant/10 shadow-[0_-8px_30px_rgba(0,0,0,0.5)] rounded-t-xl md:hidden">
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 bg-surface-container/60 dark:bg-surface-container/60 backdrop-blur-2xl border-t border-outline-variant/10 shadow-[0_-8px_30px_rgba(0,0,0,0.5)] rounded-t-xl">
 <button class="flex flex-col items-center justify-center text-secondary-container bg-primary-container/30 rounded-full px-4 py-1 shadow-[0_0_15px_rgba(255,191,0,0.2)] hover:text-primary transition-all duration-300 scale-90 transition-transform">
 <span class="material-symbols-outlined" data-icon="home">home</span>
 <span class="font-label-sm text-label-sm">Home</span>
@@ -342,4 +323,5 @@
 <span class="font-label-sm text-label-sm">Categories</span>
 </button>
 </nav>
-</body></html>
+</body>
+</html>
