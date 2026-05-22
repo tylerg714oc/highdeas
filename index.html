@@ -6,12 +6,10 @@
 <title>Highdeas</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=Space+Grotesk:wght@400..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&amp;family=Space+Grotesk:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
         .smoke-overlay {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
             pointer-events: none; z-index: 9999;
@@ -20,17 +18,12 @@
         }
         .glass-card {
             background-color: rgba(37, 61, 44, 0.4);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(112, 128, 144, 0.2);
             box-shadow: 0 0 15px rgba(27, 48, 34, 0.4);
             transition: all 0.3s ease;
         }
-        .glass-card:hover {
-            transform: scale(1.02);
-            backdrop-filter: blur(24px);
-            border-color: rgba(212, 175, 55, 0.5);
-        }
+        .glass-card:hover { transform: scale(1.02); border-color: rgba(212, 175, 55, 0.5); }
         .btn-pulse { animation: pulse-glow 2s infinite alternate; }
         @keyframes pulse-glow {
             from { box-shadow: 0 0 5px rgba(255, 191, 0, 0.4); }
@@ -40,48 +33,33 @@
 <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "error": "#ffb4ab",
-                        "outline": "#8d928c",
-                        "surface-container-high": "#1c2b39",
-                        "background": "#041521",
-                        "error-container": "#93000a",
-                        "on-surface": "#d4e4f6",
-                        "surface-container-low": "#0d1d2a",
-                        "primary": "#b4cdb8",
-                        "secondary-container": "#ffbf00",
-                        "surface-container": "#11212e",
-                        "surface-variant": "#273644",
-                        "tertiary": "#e9c349",
-                        "on-background": "#d4e4f6",
-                        "on-primary": "#203527",
-                        "outline-variant": "#434843",
-                        "surface-container-highest": "#273644",
-                        "surface": "#041521",
-                        "on-surface-variant": "#c3c8c1",
-                        "primary-container": "#1b3022",
-                        "secondary": "#ffe2ab"
-                    },
-                    "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
-                    "spacing": { "margin-mobile": "16px" },
-                    "fontFamily": {
-                        "label-sm": ["Space Grotesk"],
-                        "body-lg": ["Space Grotesk"],
-                        "body-md": ["Space Grotesk"],
-                        "headline-lg-mobile": ["Bricolage Grotesque"],
-                        "label-md": ["Space Grotesk"]
-                    },
-                    "fontSize": {
-                        "label-sm": ["12px", { "lineHeight": "1.2", "fontWeight": "500" }],
-                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
-                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
-                        "headline-lg-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "700" }],
-                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600" }]
-                    }
+            theme: { extend: {
+                "colors": {
+                    "tertiary-container": "#cba72f", "outline": "#8d928c", "on-surface": "#d4e4f6",
+                    "secondary-fixed-dim": "#fbbc00", "surface-variant": "#273644",
+                    "surface-container-lowest": "#010f1c", "on-surface-variant": "#c3c8c1",
+                    "secondary-container": "#ffbf00", "surface-dim": "#041521", "secondary": "#ffe2ab",
+                    "on-primary": "#203527", "error-container": "#93000a", "outline-variant": "#434843",
+                    "surface-container-highest": "#273644", "primary": "#b4cdb8",
+                    "tertiary": "#e9c349", "surface-container": "#11212e", "on-background": "#d4e4f6",
+                    "surface-container-low": "#0d1d2a", "primary-container": "#1b3022",
+                    "surface-container-high": "#1c2b39", "error": "#ffb4ab", "surface-bright": "#2b3b49",
+                    "background": "#041521", "surface": "#041521"
+                },
+                "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                "spacing": { "margin-mobile": "16px", "gutter": "24px" },
+                "fontFamily": {
+                    "body-lg": ["Space Grotesk"], "label-md": ["Space Grotesk"], "body-md": ["Space Grotesk"],
+                    "headline-lg-mobile": ["Bricolage Grotesque"], "label-sm": ["Space Grotesk"]
+                },
+                "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}]
                 }
-            }
+            } }
         }
     </script>
 </head>
@@ -102,30 +80,88 @@
 </p>
 <div class="h-1 w-16 bg-secondary-container/20 rounded-full mt-4"></div>
 </div>
-
 <section id="feed" class="flex flex-col gap-6">
 <p id="loading" class="text-center text-on-surface-variant py-8">Loading ideas...</p>
 </section>
 </main>
 
-<button onclick="openModal()" class="fixed bottom-8 right-6 w-14 h-14 bg-secondary-container text-primary-container rounded-full flex items-center justify-center shadow-lg btn-pulse z-40">
+<button onclick="openSubmit()" class="fixed bottom-8 right-6 w-14 h-14 bg-secondary-container text-primary-container rounded-full flex items-center justify-center shadow-lg btn-pulse z-40">
 <span class="material-symbols-outlined text-[28px]">add</span>
 </button>
 
-<div id="modal" class="fixed inset-0 z-50 items-center justify-center bg-black/60 backdrop-blur-sm px-4" style="display:none;">
-<div class="glass-card rounded-xl p-6 w-full max-w-md flex flex-col gap-4" style="background-color: rgba(17, 33, 46, 0.95);">
-<div class="flex justify-between items-center">
-<h2 class="text-xl font-bold text-secondary-container" style="font-family: 'Bricolage Grotesque';">Spark a Thought</h2>
-<button onclick="closeModal()" class="text-on-surface-variant hover:text-error transition-colors">
+<!-- SUBMIT POPUP (Spark a Thought) -->
+<div id="submitModal" class="fixed inset-0 z-50 items-center justify-center bg-surface-container-lowest/80 backdrop-blur-md p-4" style="display:none;">
+<div class="relative w-full max-w-lg bg-surface border border-outline/20 rounded-xl shadow-[0_0_40px_rgba(27,48,34,0.6)] flex flex-col overflow-hidden">
+<div class="flex justify-between items-center p-6 border-b border-outline/10 bg-primary-container/20">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary">Spark a Thought</h2>
+<button onclick="closeSubmit()" class="text-on-surface-variant hover:text-secondary-container transition-colors p-2 rounded-full hover:bg-surface-variant/50">
 <span class="material-symbols-outlined">close</span>
 </button>
 </div>
-<input id="titleInput" type="text" placeholder="Title (optional)" class="w-full bg-surface-container-low border border-outline-variant/40 rounded-lg p-3 text-on-surface placeholder:text-on-surface-variant/50 focus:border-secondary-container focus:ring-0 outline-none"/>
-<textarea id="contentInput" rows="4" placeholder="What's on your mind? (keep it hazy...)" class="w-full bg-surface-container-low border border-outline-variant/40 rounded-lg p-3 text-on-surface placeholder:text-on-surface-variant/50 focus:border-secondary-container focus:ring-0 outline-none resize-none"></textarea>
-<button onclick="submitPost()" id="submitBtn" class="w-full bg-secondary-container text-primary-container font-bold py-3 rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
-<span class="material-symbols-outlined text-[20px]">rocket_launch</span>
+<div class="p-6 flex flex-col gap-6 bg-surface/90">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3 px-4 py-3 bg-surface-container/50 border-0 border-b-2 border-outline/50 rounded-t-lg focus-within:border-secondary-container transition-all duration-300">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">person</span>
+<input id="nameInput" class="bg-transparent border-none p-0 focus:ring-0 w-full font-body-md text-body-md text-on-surface placeholder-on-surface-variant/50 outline-none" placeholder="Your name (optional)" type="text"/>
+</div>
+<label class="flex items-center gap-3 cursor-pointer group px-1">
+<div class="relative flex items-center justify-center w-6 h-6">
+<input id="anonCheck" class="peer sr-only" type="checkbox" checked/>
+<div class="w-5 h-5 border-2 border-outline/50 rounded peer-checked:bg-secondary-container peer-checked:border-secondary-container transition-colors"></div>
+<span class="material-symbols-outlined text-primary-container absolute opacity-0 peer-checked:opacity-100 text-sm pointer-events-none transition-opacity" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface-variant group-hover:text-on-surface transition-colors">Post Anonymously</span>
+</label>
+</div>
+<div class="relative">
+<textarea id="contentInput" class="w-full h-40 bg-surface-container/50 border-0 border-b-2 border-outline/50 rounded-t-lg p-4 font-body-lg text-body-lg text-on-surface placeholder-on-surface-variant/50 focus:ring-0 focus:border-secondary-container transition-all duration-300 resize-none outline-none focus:shadow-[0_4px_15px_rgba(255,191,0,0.1)] focus:bg-surface-container/80" placeholder="What's on your mind? (Keep it hazy...)"></textarea>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2 px-4 py-3 bg-surface-container/50 border-0 border-b-2 border-outline/50 rounded-t-lg focus-within:border-secondary-container transition-all duration-300">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">tag</span>
+<input id="tagInput" class="bg-transparent border-none p-0 focus:ring-0 w-full font-body-md text-body-md text-on-surface placeholder-on-surface-variant/50 outline-none" placeholder="Add tags (e.g., #philosophy, #snacks)" type="text"/>
+</div>
+<div class="flex flex-wrap gap-2 mt-2">
+<button type="button" onclick="addTag('#showerthoughts')" class="px-3 py-1 rounded-full border border-outline/50 bg-transparent text-on-surface-variant font-label-sm text-label-sm hover:border-secondary-container hover:text-secondary-container transition-colors">#showerthoughts</button>
+<button type="button" onclick="addTag('#munchies')" class="px-3 py-1 rounded-full border border-outline/50 bg-transparent text-on-surface-variant font-label-sm text-label-sm hover:border-secondary-container hover:text-secondary-container transition-colors">#munchies</button>
+<button type="button" onclick="addTag('#universe')" class="px-3 py-1 rounded-full border border-outline/50 bg-transparent text-on-surface-variant font-label-sm text-label-sm hover:border-secondary-container hover:text-secondary-container transition-colors">#universe</button>
+</div>
+</div>
+</div>
+<div class="p-6 bg-surface-container/30 border-t border-outline/10 flex justify-end">
+<button onclick="submitPost()" id="submitBtn" class="px-8 py-3 bg-secondary-container text-primary-container font-label-md text-label-md rounded-lg shadow-[0_0_15px_rgba(255,191,0,0.4)] hover:shadow-[0_0_25px_rgba(255,191,0,0.6)] hover:scale-105 transition-all duration-300 flex items-center gap-2 group">
 Post Highdea
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">send</span>
 </button>
+</div>
+</div>
+</div>
+
+<!-- PIN BOOST POPUP (demo checkout) -->
+<div id="boostModal" class="fixed inset-0 z-50 items-center justify-center bg-surface-container-lowest/80 backdrop-blur-md px-4" style="display:none;">
+<div class="relative w-full max-w-md bg-surface border border-outline/20 rounded-xl shadow-[0_0_40px_rgba(27,48,34,0.6)] flex flex-col gap-4 p-6 text-center">
+<div class="flex justify-between items-center">
+<span class="text-xl font-bold" style="color:#fbbc00; font-family: 'Bricolage Grotesque';">Highdeas</span>
+<button onclick="closeBoost()" class="text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<span class="material-symbols-outlined text-secondary-container text-[40px] mx-auto">push_pin</span>
+<h2 class="text-2xl font-bold text-on-surface" style="font-family: 'Bricolage Grotesque';">Pin Boost</h2>
+<p class="text-body-md text-on-surface-variant">Lock your thought to the top of the feed for 24 hours and let the community marinate on it.</p>
+<div class="flex items-center justify-between bg-surface-container-low rounded-lg p-4 border border-outline-variant/40">
+<span class="text-on-surface-variant text-label-md">TOTAL</span>
+<span class="text-2xl font-bold text-secondary-container">$4.20</span>
+</div>
+<input type="text" placeholder="Card Number" class="w-full bg-surface-container-low border border-outline-variant/40 rounded-lg p-3 text-on-surface placeholder:text-on-surface-variant/50 outline-none"/>
+<div class="flex gap-3">
+<input type="text" placeholder="MM / YY" class="w-1/2 bg-surface-container-low border border-outline-variant/40 rounded-lg p-3 text-on-surface placeholder:text-on-surface-variant/50 outline-none"/>
+<input type="text" placeholder="CVC" class="w-1/2 bg-surface-container-low border border-outline-variant/40 rounded-lg p-3 text-on-surface placeholder:text-on-surface-variant/50 outline-none"/>
+</div>
+<button onclick="fakePay()" class="w-full bg-secondary-container text-primary-container font-bold py-3 rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[20px]">rocket_launch</span> Pay $4.20 &amp; Boost
+</button>
+<p class="text-label-sm text-on-surface-variant/60">Demo only &mdash; no real payment is processed yet</p>
 </div>
 </div>
 
@@ -134,51 +170,29 @@ const SUPABASE_URL = 'https://nfqxflrftqcrueywyoel.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_xTsRjuOb3tmzEYz9Lo9X9Q_o3UofqfH';
 const db = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-function timeAgo(dateString) {
-    const seconds = Math.floor((new Date() - new Date(dateString)) / 1000);
-    if (seconds < 60) return 'just now';
-    const minutes = Math.floor(seconds / 60);
-    if (minutes < 60) return minutes + 'm ago';
-    const hours = Math.floor(minutes / 60);
-    if (hours < 24) return hours + 'h ago';
-    const days = Math.floor(hours / 24);
-    return days + 'd ago';
-}
+function timeAgo(s){var d=Math.floor((new Date()-new Date(s))/1000);if(d<60)return'just now';var m=Math.floor(d/60);if(m<60)return m+'m ago';var h=Math.floor(m/60);if(h<24)return h+'h ago';return Math.floor(h/24)+'d ago';}
+function escapeHtml(t){var d=document.createElement('div');d.textContent=t;return d.innerHTML;}
 
-function escapeHtml(text) {
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
+function addTag(tag) {
+    var input = document.getElementById('tagInput');
+    var current = input.value.trim();
+    if (current.indexOf(tag) !== -1) return;
+    input.value = current ? current + ' ' + tag : tag;
 }
 
 async function loadPosts() {
-    const { data, error } = await db
-        .from('posts')
-        .select('*')
-        .order('upvotes', { ascending: false });
-
+    const { data, error } = await db.from('posts').select('*').order('upvotes', { ascending: false });
     const feed = document.getElementById('feed');
-    if (error) {
-        feed.innerHTML = '<p class="text-center text-error py-8">Could not load ideas. Refresh to try again.</p>';
-        return;
-    }
-    if (!data || data.length === 0) {
-        feed.innerHTML = '<p class="text-center text-on-surface-variant py-8">No ideas yet. Be the first to spark one! Tap the + button.</p>';
-        return;
-    }
-
+    if (error) { feed.innerHTML = '<p class="text-center text-error py-8">Could not load ideas. Refresh to try again.</p>'; return; }
+    if (!data || data.length === 0) { feed.innerHTML = '<p class="text-center text-on-surface-variant py-8">No ideas yet. Be the first to spark one! Tap the + button.</p>'; return; }
     feed.innerHTML = data.map(function(post) {
         return '<article class="glass-card rounded-xl p-5 flex flex-col gap-4">' +
-            '<div class="flex justify-between items-start">' +
-                '<div class="flex items-center gap-3">' +
-                    '<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center border border-outline-variant/50">' +
-                        '<span class="material-symbols-outlined text-primary">cruelty_free</span>' +
-                    '</div>' +
-                    '<div class="flex flex-col">' +
-                        '<span class="text-label-md text-primary">' + escapeHtml(post.author || 'Anonymous') + '</span>' +
-                        '<span class="text-label-sm text-on-surface-variant">' + timeAgo(post.created_at) + '</span>' +
-                    '</div>' +
-                '</div>' +
+            '<div class="flex items-center gap-3">' +
+                '<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center border border-outline-variant/50">' +
+                    '<span class="material-symbols-outlined text-primary">cruelty_free</span></div>' +
+                '<div class="flex flex-col">' +
+                    '<span class="text-label-md text-primary">' + escapeHtml(post.author || 'Anonymous') + '</span>' +
+                    '<span class="text-label-sm text-on-surface-variant">' + timeAgo(post.created_at) + '</span></div>' +
             '</div>' +
             '<div class="py-2">' +
                 (post.title ? '<h3 class="text-headline-lg-mobile text-on-surface mb-2">' + escapeHtml(post.title) + '</h3>' : '') +
@@ -186,65 +200,48 @@ async function loadPosts() {
             '</div>' +
             '<div class="flex items-center justify-between border-t border-outline-variant/20 pt-4 mt-2">' +
                 '<div class="flex items-center gap-1 bg-surface-container-high rounded-full p-1 border border-outline-variant/30">' +
-                    '<button onclick="vote(' + post.id + ', \'up\')" class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary-container hover:text-primary transition-colors text-on-surface-variant">' +
-                        '<span class="material-symbols-outlined text-[20px]">thumb_up</span>' +
-                    '</button>' +
+                    '<button onclick="vote(' + post.id + ', \'up\')" class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary-container hover:text-primary transition-colors text-on-surface-variant"><span class="material-symbols-outlined text-[20px]">thumb_up</span></button>' +
                     '<span class="text-label-md text-on-surface px-2">' + (post.upvotes - post.downvotes) + '</span>' +
-                    '<button onclick="vote(' + post.id + ', \'down\')" class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-error-container hover:text-error transition-colors text-on-surface-variant">' +
-                        '<span class="material-symbols-outlined text-[20px]">thumb_down</span>' +
-                    '</button>' +
+                    '<button onclick="vote(' + post.id + ', \'down\')" class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-error-container hover:text-error transition-colors text-on-surface-variant"><span class="material-symbols-outlined text-[20px]">thumb_down</span></button>' +
                 '</div>' +
+                '<button onclick="openBoost()" class="flex items-center gap-2 px-4 py-2 rounded-full border border-secondary-container/50 text-secondary-container hover:bg-secondary-container/10 transition-colors text-label-md">' +
+                    '<span class="material-symbols-outlined text-[18px]">rocket_launch</span> Pin Boost</button>' +
             '</div>' +
         '</article>';
     }).join('');
 }
 
-async function vote(id, direction) {
+async function vote(id, dir) {
     const { data } = await db.from('posts').select('upvotes, downvotes').eq('id', id).single();
     if (!data) return;
-    if (direction === 'up') {
-        await db.from('posts').update({ upvotes: data.upvotes + 1 }).eq('id', id);
-    } else {
-        await db.from('posts').update({ downvotes: data.downvotes + 1 }).eq('id', id);
-    }
+    if (dir === 'up') { await db.from('posts').update({ upvotes: data.upvotes + 1 }).eq('id', id); }
+    else { await db.from('posts').update({ downvotes: data.downvotes + 1 }).eq('id', id); }
     loadPosts();
 }
 
-function openModal() {
-    document.getElementById('modal').style.display = 'flex';
+function openSubmit(){ document.getElementById('submitModal').style.display='flex'; }
+function closeSubmit(){
+    document.getElementById('submitModal').style.display='none';
+    document.getElementById('nameInput').value='';
+    document.getElementById('contentInput').value='';
+    document.getElementById('tagInput').value='';
 }
-function closeModal() {
-    document.getElementById('modal').style.display = 'none';
-    document.getElementById('titleInput').value = '';
-    document.getElementById('contentInput').value = '';
-}
+function openBoost(){ document.getElementById('boostModal').style.display='flex'; }
+function closeBoost(){ document.getElementById('boostModal').style.display='none'; }
+function fakePay(){ alert('Boosted! (This is a demo \u2014 real payments coming soon.)'); closeBoost(); }
 
 async function submitPost() {
-    const title = document.getElementById('titleInput').value.trim();
     const content = document.getElementById('contentInput').value.trim();
-    if (!content) {
-        alert('Please write your idea first!');
-        return;
-    }
+    const anon = document.getElementById('anonCheck').checked;
+    const name = document.getElementById('nameInput').value.trim();
+    const author = anon || !name ? 'Anonymous' : name;
+    if (!content) { alert('Please write your idea first!'); return; }
     const btn = document.getElementById('submitBtn');
-    btn.disabled = true;
-    btn.innerHTML = 'Posting...';
-
-    const { error } = await db.from('posts').insert({
-        title: title || null,
-        content: content,
-        author: 'Anonymous'
-    });
-
-    btn.disabled = false;
-    btn.innerHTML = '<span class="material-symbols-outlined text-[20px]">rocket_launch</span> Post Highdea';
-
-    if (error) {
-        alert('Something went wrong. Try again.');
-        return;
-    }
-    closeModal();
-    loadPosts();
+    btn.disabled = true; btn.innerHTML = 'Posting...';
+    const { error } = await db.from('posts').insert({ content: content, author: author });
+    btn.disabled = false; btn.innerHTML = 'Post Highdea <span class="material-symbols-outlined">send</span>';
+    if (error) { alert('Something went wrong. Try again.'); return; }
+    closeSubmit(); loadPosts();
 }
 
 loadPosts();
