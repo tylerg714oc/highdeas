@@ -40,7 +40,7 @@
                     "surface-container-lowest": "#010f1c", "on-surface-variant": "#c3c8c1",
                     "secondary-container": "#ffbf00", "surface-dim": "#041521", "secondary": "#ffe2ab",
                     "on-primary": "#203527", "error-container": "#93000a", "outline-variant": "#434843",
-                    "surface-container-highest": "#273644", "primary": "#b4cdb8",
+                    "surface-container-highest": "#273644", "primary": "#b4cdb8", "on-secondary-container": "#6d5000",
                     "tertiary": "#e9c349", "surface-container": "#11212e", "on-background": "#d4e4f6",
                     "surface-container-low": "#0d1d2a", "primary-container": "#1b3022",
                     "surface-container-high": "#1c2b39", "error": "#ffb4ab", "surface-bright": "#2b3b49",
@@ -50,13 +50,14 @@
                 "spacing": { "margin-mobile": "16px", "gutter": "24px" },
                 "fontFamily": {
                     "body-lg": ["Space Grotesk"], "label-md": ["Space Grotesk"], "body-md": ["Space Grotesk"],
-                    "headline-lg-mobile": ["Bricolage Grotesque"], "label-sm": ["Space Grotesk"]
+                    "headline-lg-mobile": ["Bricolage Grotesque"], "headline-xl": ["Bricolage Grotesque"], "label-sm": ["Space Grotesk"]
                 },
                 "fontSize": {
                     "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
                     "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
                     "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
                     "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
                     "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}]
                 }
             } }
@@ -137,31 +138,72 @@ Post Highdea
 </div>
 </div>
 
-<!-- PIN BOOST POPUP (demo checkout) -->
-<div id="boostModal" class="fixed inset-0 z-50 items-center justify-center bg-surface-container-lowest/80 backdrop-blur-md px-4" style="display:none;">
-<div class="relative w-full max-w-md bg-surface border border-outline/20 rounded-xl shadow-[0_0_40px_rgba(27,48,34,0.6)] flex flex-col gap-4 p-6 text-center">
-<div class="flex justify-between items-center">
-<span class="text-xl font-bold" style="color:#fbbc00; font-family: 'Bricolage Grotesque';">Highdeas</span>
-<button onclick="closeBoost()" class="text-on-surface-variant hover:text-error transition-colors">
+<!-- PIN BOOST POPUP (demo checkout, matches user design) -->
+<div id="boostModal" class="fixed inset-0 z-50 items-center justify-center bg-surface-container-lowest/80 backdrop-blur-md p-4 overflow-y-auto" style="display:none;">
+<div class="relative w-full max-w-lg bg-surface border border-outline/20 rounded-xl shadow-[0_0_40px_rgba(27,48,34,0.6)] flex flex-col gap-8 p-6 my-8">
+<button onclick="closeBoost()" class="absolute top-4 right-4 text-on-surface-variant hover:text-error transition-colors z-20">
 <span class="material-symbols-outlined">close</span>
 </button>
+<header class="flex flex-col gap-2 text-center items-center">
+<div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-secondary-container/10 mb-2 shadow-[0_0_20px_rgba(255,191,0,0.15)]">
+<span class="material-symbols-outlined text-secondary-container text-3xl" style="font-variation-settings: 'FILL' 1;">push_pin</span>
 </div>
-<span class="material-symbols-outlined text-secondary-container text-[40px] mx-auto">push_pin</span>
-<h2 class="text-2xl font-bold text-on-surface" style="font-family: 'Bricolage Grotesque';">Pin Boost</h2>
-<p class="text-body-md text-on-surface-variant">Lock your thought to the top of the feed for 24 hours and let the community marinate on it.</p>
-<div class="flex items-center justify-between bg-surface-container-low rounded-lg p-4 border border-outline-variant/40">
-<span class="text-on-surface-variant text-label-md">TOTAL</span>
-<span class="text-2xl font-bold text-secondary-container">$4.20</span>
+<h1 class="font-headline-xl text-headline-xl text-on-background">Pin Boost</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm">Lock your thought to the top of the feed for 24 hours and let the community marinate on it.</p>
+</header>
+<section class="relative rounded-xl bg-primary-container/40 backdrop-blur-xl border border-outline-variant/30 p-6 shadow-[0_0_25px_rgba(255,191,0,0.05)] overflow-hidden">
+<div class="absolute -top-12 -right-12 w-40 h-40 bg-secondary-container/15 rounded-full blur-[40px] pointer-events-none"></div>
+<div class="flex justify-between items-start mb-4 relative z-10">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center border border-outline-variant/50">
+<span class="material-symbols-outlined text-primary">cruelty_free</span>
 </div>
-<input type="text" placeholder="Card Number" class="w-full bg-surface-container-low border border-outline-variant/40 rounded-lg p-3 text-on-surface placeholder:text-on-surface-variant/50 outline-none"/>
-<div class="flex gap-3">
-<input type="text" placeholder="MM / YY" class="w-1/2 bg-surface-container-low border border-outline-variant/40 rounded-lg p-3 text-on-surface placeholder:text-on-surface-variant/50 outline-none"/>
-<input type="text" placeholder="CVC" class="w-1/2 bg-surface-container-low border border-outline-variant/40 rounded-lg p-3 text-on-surface placeholder:text-on-surface-variant/50 outline-none"/>
+<div class="flex flex-col">
+<span id="boostAuthor" class="font-label-md text-label-md text-on-surface">Anonymous</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Just now</span>
 </div>
-<button onclick="fakePay()" class="w-full bg-secondary-container text-primary-container font-bold py-3 rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
-<span class="material-symbols-outlined text-[20px]">rocket_launch</span> Pay $4.20 &amp; Boost
+</div>
+<div class="flex flex-col items-end">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Total</span>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-secondary-container">$4.20</span>
+</div>
+</div>
+<div class="relative z-10 bg-surface-container-high/50 rounded-lg p-4 border border-outline-variant/20">
+<p id="boostQuote" class="font-body-md text-body-md text-on-background italic opacity-90 line-clamp-3"></p>
+</div>
+</section>
+<section class="flex flex-col gap-6 mt-2">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-background border-b border-outline-variant/20 pb-2">Payment Details</h2>
+<div class="flex flex-col gap-8">
+<div class="relative group mt-2">
+<input class="peer w-full bg-transparent border-b-2 border-outline-variant text-on-background font-body-lg text-body-lg py-2 px-1 focus:outline-none focus:border-secondary-container transition-all duration-300 placeholder-transparent" id="cardNumber" placeholder=" " type="text"/>
+<label class="absolute left-1 top-2 font-body-md text-body-md text-on-surface-variant transition-all duration-300 peer-focus:-top-5 peer-focus:text-label-sm peer-focus:text-secondary-container peer-[:not(:placeholder-shown)]:-top-5 peer-[:not(:placeholder-shown)]:text-label-sm" for="cardNumber">Card Number</label>
+<span class="material-symbols-outlined absolute right-2 top-2 text-on-surface-variant peer-focus:text-secondary-container transition-colors">credit_card</span>
+</div>
+<div class="flex gap-6 mt-2">
+<div class="relative group flex-1">
+<input class="peer w-full bg-transparent border-b-2 border-outline-variant text-on-background font-body-lg text-body-lg py-2 px-1 focus:outline-none focus:border-secondary-container transition-all duration-300 placeholder-transparent" id="expiry" placeholder=" " type="text"/>
+<label class="absolute left-1 top-2 font-body-md text-body-md text-on-surface-variant transition-all duration-300 peer-focus:-top-5 peer-focus:text-label-sm peer-focus:text-secondary-container peer-[:not(:placeholder-shown)]:-top-5 peer-[:not(:placeholder-shown)]:text-label-sm" for="expiry">MM / YY</label>
+</div>
+<div class="relative group flex-1">
+<input class="peer w-full bg-transparent border-b-2 border-outline-variant text-on-background font-body-lg text-body-lg py-2 px-1 focus:outline-none focus:border-secondary-container transition-all duration-300 placeholder-transparent" id="cvc" placeholder=" " type="text"/>
+<label class="absolute left-1 top-2 font-body-md text-body-md text-on-surface-variant transition-all duration-300 peer-focus:-top-5 peer-focus:text-label-sm peer-focus:text-secondary-container peer-[:not(:placeholder-shown)]:-top-5 peer-[:not(:placeholder-shown)]:text-label-sm" for="cvc">CVC</label>
+</div>
+</div>
+<div class="relative group mt-2">
+<input class="peer w-full bg-transparent border-b-2 border-outline-variant text-on-background font-body-lg text-body-lg py-2 px-1 focus:outline-none focus:border-secondary-container transition-all duration-300 placeholder-transparent" id="zip" placeholder=" " type="text"/>
+<label class="absolute left-1 top-2 font-body-md text-body-md text-on-surface-variant transition-all duration-300 peer-focus:-top-5 peer-focus:text-label-sm peer-focus:text-secondary-container peer-[:not(:placeholder-shown)]:-top-5 peer-[:not(:placeholder-shown)]:text-label-sm" for="zip">ZIP Code</label>
+</div>
+<button onclick="fakePay()" class="mt-4 w-full py-4 rounded-full bg-secondary-container text-on-secondary-container font-headline-lg-mobile text-headline-lg-mobile shadow-[0_0_15px_rgba(255,191,0,0.4)] hover:shadow-[0_0_25px_rgba(255,191,0,0.6)] hover:scale-[1.02] transition-all duration-300 active:scale-95 flex items-center justify-center gap-3" type="button">
+<span class="material-symbols-outlined text-[28px]">rocket_launch</span>
+Pay $4.20 &amp; Boost
 </button>
-<p class="text-label-sm text-on-surface-variant/60">Demo only &mdash; no real payment is processed yet</p>
+<div class="flex items-center justify-center gap-2 text-on-surface-variant opacity-70">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+<span class="font-label-sm text-label-sm">Demo only &mdash; no real payment yet</span>
+</div>
+</div>
+</section>
 </div>
 </div>
 
@@ -186,17 +228,19 @@ async function loadPosts() {
     if (error) { feed.innerHTML = '<p class="text-center text-error py-8">Could not load ideas. Refresh to try again.</p>'; return; }
     if (!data || data.length === 0) { feed.innerHTML = '<p class="text-center text-on-surface-variant py-8">No ideas yet. Be the first to spark one! Tap the + button.</p>'; return; }
     feed.innerHTML = data.map(function(post) {
+        var safeAuthor = escapeHtml(post.author || 'Anonymous');
+        var safeContent = escapeHtml(post.content);
         return '<article class="glass-card rounded-xl p-5 flex flex-col gap-4">' +
             '<div class="flex items-center gap-3">' +
                 '<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center border border-outline-variant/50">' +
                     '<span class="material-symbols-outlined text-primary">cruelty_free</span></div>' +
                 '<div class="flex flex-col">' +
-                    '<span class="text-label-md text-primary">' + escapeHtml(post.author || 'Anonymous') + '</span>' +
+                    '<span class="text-label-md text-primary">' + safeAuthor + '</span>' +
                     '<span class="text-label-sm text-on-surface-variant">' + timeAgo(post.created_at) + '</span></div>' +
             '</div>' +
             '<div class="py-2">' +
                 (post.title ? '<h3 class="text-headline-lg-mobile text-on-surface mb-2">' + escapeHtml(post.title) + '</h3>' : '') +
-                '<p class="text-body-lg text-on-surface-variant/90">' + escapeHtml(post.content) + '</p>' +
+                '<p class="text-body-lg text-on-surface-variant/90">' + safeContent + '</p>' +
             '</div>' +
             '<div class="flex items-center justify-between border-t border-outline-variant/20 pt-4 mt-2">' +
                 '<div class="flex items-center gap-1 bg-surface-container-high rounded-full p-1 border border-outline-variant/30">' +
@@ -204,7 +248,7 @@ async function loadPosts() {
                     '<span class="text-label-md text-on-surface px-2">' + (post.upvotes - post.downvotes) + '</span>' +
                     '<button onclick="vote(' + post.id + ', \'down\')" class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-error-container hover:text-error transition-colors text-on-surface-variant"><span class="material-symbols-outlined text-[20px]">thumb_down</span></button>' +
                 '</div>' +
-                '<button onclick="openBoost()" class="flex items-center gap-2 px-4 py-2 rounded-full border border-secondary-container/50 text-secondary-container hover:bg-secondary-container/10 transition-colors text-label-md">' +
+                '<button onclick="openBoost(\'' + safeAuthor.replace(/'/g, "") + '\', \'' + safeContent.replace(/'/g, "").replace(/\n/g, " ") + '\')" class="flex items-center gap-2 px-4 py-2 rounded-full border border-secondary-container/50 text-secondary-container hover:bg-secondary-container/10 transition-colors text-label-md">' +
                     '<span class="material-symbols-outlined text-[18px]">rocket_launch</span> Pin Boost</button>' +
             '</div>' +
         '</article>';
@@ -226,7 +270,11 @@ function closeSubmit(){
     document.getElementById('contentInput').value='';
     document.getElementById('tagInput').value='';
 }
-function openBoost(){ document.getElementById('boostModal').style.display='flex'; }
+function openBoost(author, quote){
+    document.getElementById('boostAuthor').textContent = author || 'Anonymous';
+    document.getElementById('boostQuote').textContent = '"' + (quote || '') + '"';
+    document.getElementById('boostModal').style.display='flex';
+}
 function closeBoost(){ document.getElementById('boostModal').style.display='none'; }
 function fakePay(){ alert('Boosted! (This is a demo \u2014 real payments coming soon.)'); closeBoost(); }
 
